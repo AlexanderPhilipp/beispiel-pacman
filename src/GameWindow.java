@@ -3,18 +3,22 @@ import javax.swing.JPanel;
 import java.awt.*;
 
 /**
- * Hier wird das Spielfenster kreiert
+ * Diese Klasse repräsentiert das Fenster
  * @author Alexander Philipp
  */
 
-public class GameWindow extends JPanel
+public class GameWindow extends JFrame
 {
     private int _windowWidth;
     private int _windowHeight;
     private String _windowTitle;
 
-    private final JFrame window;
-
+    /**
+     * Kreiert das Fenster
+     * @param width Die Fensterbreite
+     * @param height Die Fensterhöhe
+     * @param title Der Fenstertitel
+     */
 
     public GameWindow(int width, int height, String title)
     {
@@ -23,17 +27,35 @@ public class GameWindow extends JPanel
 
         _windowTitle = title;
 
-        window = new JFrame();
-        window.setContentPane(this);
-        window.setTitle(title);
-        setPreferredSize(new Dimension(width, height));
-        window.setResizable(false);
-        window.pack();
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setVisible(true);
+        setSize(_windowWidth, _windowHeight);
+        setTitle(title);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public int GetWidth(){ return _windowWidth; }
-    public int GetHeight(){ return _windowHeight; }
-    public String GetWindowTitle(){ return _windowTitle; }
+
+    /**
+     * Macht das Fenster sichtbar
+     */
+    public void openWindow()
+    {
+        setVisible(true);
+    }
+
+    /**
+     * Die Methode gibt die Breite des Fensters wieder
+     * @return Die Fensterbreite
+     */
+    public int getWidth(){ return _windowWidth; }
+
+    /**
+     * Die Methode gibt die Höhe des Fensters wieder
+     * @return Die Fensterhöhe
+     */
+    public int getHeight(){ return _windowHeight; }
+
+    /**
+     * Die Methode gibt den Titel des Fensters wieder
+     * @return Der Fenstertitel
+     */
+    public String getWindowTitle(){ return _windowTitle; }
 }
