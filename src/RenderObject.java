@@ -12,11 +12,11 @@ public class RenderObject
 
     }
 
+    /**
+     * Diese Methode soll von erbenden Klassen überschrieben werden um eigene Grafiken einzufügen
+     * @param g der Kontext der Grafik
+     */
     public void renderObject(Graphics g){
-        Graphics2D graphic = (Graphics2D) g;
 
-        //Hier muss die Überschriebene Zeichnung eingefügt werden
-        graphic.setColor(Color.RED);
-        graphic.fillRect(50, 50, 50, 50);
     }
 }
