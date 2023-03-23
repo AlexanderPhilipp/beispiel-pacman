@@ -15,5 +15,9 @@ public class Main
 
         window.add(gameRenderer);
         window.openWindow();
+
+        RenderObject obj = new RenderObject();
+        gameRenderer.addRenderObject(obj);
+        gameRenderer.repaint();
     }
 }

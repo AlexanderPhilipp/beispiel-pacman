@@ -30,6 +30,7 @@ public class GameWindow extends JFrame
         setSize(_windowWidth, _windowHeight);
         setTitle(title);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
     }
 
 
