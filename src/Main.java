@@ -16,8 +16,7 @@ public class Main
         window.add(gameRenderer);
         window.openWindow();
 
-        RenderObject obj = new RenderObject();
-        gameRenderer.addRenderObject(obj);
+        Level level = new Level(20, 20, 450, 450, gameRenderer);
         gameRenderer.repaint();
     }
 }

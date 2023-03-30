@@ -16,7 +16,8 @@ public class RenderObject
      * Diese Methode soll von erbenden Klassen überschrieben werden um eigene Grafiken einzufügen
      * @param g der Kontext der Grafik
      */
-    public void renderObject(Graphics g){
+    public void renderObject(Graphics g)
+    {
 
     }
 }
