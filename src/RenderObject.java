@@ -18,6 +18,6 @@ public class RenderObject
      */
     public void renderObject(Graphics g)
     {
-
+    
     }
 }
