@@ -6,10 +6,12 @@ import java.util.ArrayList;
  * Die Renderer Klasse zeichnet JComponents im Fenster
  * @author Alexander Philipp
  */
-public class Renderer extends JPanel
+public class Renderer extends JPanel implements Runnable
 {
     private Color _backgroundColor;
     private ArrayList<RenderObject> _renderObjects = new ArrayList<RenderObject>();
+    private Thread _renderThread;
+    private String _threadName = "Renderer";
 
     /**
      * Kreiert eine neue Renderer Klasse
@@ -53,6 +55,35 @@ public class Renderer extends JPanel
      */
     @Override
     public void repaint() {
+        super.repaint();
+    }
 
+    public void startRenderer()
+    {
+        if(_renderThread == null){
+            _threadName = "Renderer";
+            _renderThread = new Thread(this, _threadName);
+            _renderThread.start();
+        }
+    }
+
+    void updateRenderer(){
+        this.removeAll();
+        this.revalidate();
+        this.repaint();
+    }
+
+    @Override
+    public void run()
+    {
+        while (_renderThread.isAlive())
+        {
+            try {
+                updateRenderer();
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }
